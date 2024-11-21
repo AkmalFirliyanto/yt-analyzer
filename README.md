@@ -154,6 +154,6 @@ No License
 
 ## Kontak
 
-Your Name - [@akmlfy_](https://instagram.com/akmlfy_)
+akmal - [@akmlfy_](https://instagram.com/akmlfy_)
 
 Project Link: [https://github.com/akmalfirliyanto/yt-analyzer](https://github.com/akmalfirliyanto/yt-analyzer)
