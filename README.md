@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YT Analyzer
 
-## Getting Started
+Demo: https://yt-analyzer.vercel.app/
 
-First, run the development server:
+YT Analyzer adalah aplikasi web yang memungkinkan pengguna untuk menganalisis video YouTube menggunakan AI. Aplikasi ini mengekstrak informasi penting dan menghasilkan ringkasan dari video YouTube secara otomatis.
 
+## Fitur Utama
+
+- 🚀 **Analisis Cepat**: Dapatkan ringkasan video dalam hitungan detik
+- 🎯 **Poin Penting**: Ekstrak poin-poin kunci secara otomatis
+- 📊 **Riwayat Analisis**: Simpan dan akses kembali hasil analisis
+- 🔒 **Aman**: Integrasi dengan Google Authentication
+
+## Tech Stack
+
+- **Frontend**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Authentication**: Firebase Auth
+- **Database**: Firestore
+- **AI**: Mistral AI
+- **API**: YouTube Data API v3
+
+## Prasyarat
+
+Sebelum menjalankan aplikasi, pastikan Anda memiliki:
+
+- Node.js (v18 atau lebih baru)
+- NPM atau Yarn
+- Firebase Project
+- YouTube Data API Key
+- Mistral AI API Key
+
+## Instalasi
+
+1. Clone repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/username/yt-analyzer.git
+cd yt-analyzer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
+atau
+```bash
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Setup environment variables
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Isi environment variables berikut:
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+FIREBASE_ADMIN_CLIENT_EMAIL=your_firebase_admin_client_email
+FIREBASE_ADMIN_PRIVATE_KEY=your_firebase_admin_private_key
+YOUTUBE_API_KEY=your_youtube_api_key
+MISTRAL_API_KEY=your_mistral_api_key
+```
 
-## Learn More
+4. Jalankan development server
+```bash
+npm run dev
+```
+atau
+```bash
+yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Penggunaan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Buka aplikasi di browser (default: http://localhost:3000)
+2. Login menggunakan akun Google
+3. Paste URL video YouTube yang ingin dianalisis
+4. Tunggu beberapa saat untuk mendapatkan hasil analisis
+5. Lihat riwayat analisis di sidebar
 
-## Deploy on Vercel
+## API Endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### POST /api/analyze
+Menganalisis video YouTube berdasarkan URL
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Request:
+```json
+{
+  "videoId": "your_youtube_video_id"
+}
+```
+
+
+Response:
+```json
+{
+  "summary": "ringkasan video",
+  "videoDetails": { "title": "judul video", "viewCount": 1000000, "channelTitle": "nama channel" }
+}
+```
+
+
+### GET /api/history
+Mengambil riwayat analisis pengguna
+
+Response:
+```json
+[
+{
+"id": "string",
+"title": "string",
+"timestamp": "string",
+"videoId": "string",
+"channelTitle": "string",
+"viewCount": "string"
+}
+]
+```
+
+## Struktur Project
+
+yt-analyzer/
+├── app/
+│ ├── api/
+│ │ ├── analyze/
+│ │ └── history/
+│ ├── components/
+│ ├── context/
+│ ├── lib/
+│ ├── about/
+│ ├── analyze/
+│ └── page.tsx
+├── public/
+└── package.json
+
+
+## Kontribusi
+
+1. Fork repository
+2. Buat branch baru (`git checkout -b improve-feature`)
+3. Commit perubahan (`git commit -m 'Improve feature'`)
+4. Push ke branch (`git push origin improve-feature`)
+5. Buat Pull Request
+
+## Lisensi
+
+No License
+
+## Kontak
+
+Your Name - [@akmlfy_](https://instagram.com/akmlfy_)
+
+Project Link: [https://github.com/akmalfirliyanto/yt-analyzer](https://github.com/akmalfirliyanto/yt-analyzer)
