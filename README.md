@@ -1,6 +1,6 @@
 # YT Analyzer
 
-Demo: https://yt-analyzer.vercel.app/
+Demo: https://ytanalyzer.vercel.app/
 
 YT Analyzer adalah aplikasi web yang memungkinkan pengguna untuk menganalisis video YouTube menggunakan AI. Aplikasi ini mengekstrak informasi penting dan menghasilkan ringkasan dari video YouTube secara otomatis.
 
