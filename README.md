@@ -1,6 +1,8 @@
 # YT Analyzer
+Demo: https://ytanalyzer.vercel.app/
 
-Demo: https://yt-analyzer.vercel.app/
+![image](https://github.com/user-attachments/assets/0ace9bef-09cf-41e0-9a45-a7a52a7bf32e)
+
 
 YT Analyzer adalah aplikasi web yang memungkinkan pengguna untuk menganalisis video YouTube menggunakan AI. Aplikasi ini mengekstrak informasi penting dan menghasilkan ringkasan dari video YouTube secara otomatis.
 
@@ -10,6 +12,8 @@ YT Analyzer adalah aplikasi web yang memungkinkan pengguna untuk menganalisis vi
 - 🎯 **Poin Penting**: Ekstrak poin-poin kunci secara otomatis
 - 📊 **Riwayat Analisis**: Simpan dan akses kembali hasil analisis
 - 🔒 **Aman**: Integrasi dengan Google Authentication
+
+![image](https://github.com/user-attachments/assets/6364956e-79df-4d9d-93d8-a02eb5ace4d9)
 
 ## Tech Stack
 
@@ -154,6 +158,6 @@ No License
 
 ## Kontak
 
-Your Name - [@akmlfy_](https://instagram.com/akmlfy_)
+akmal - [@akmlfy_](https://instagram.com/akmlfy_)
 
 Project Link: [https://github.com/akmalfirliyanto/yt-analyzer](https://github.com/akmalfirliyanto/yt-analyzer)
