@@ -59,7 +59,7 @@ Deskripsi: ${video.snippet?.description}
         'Authorization': `Bearer ${process.env.MISTRAL_API_KEY}`
       },
       body: JSON.stringify({
-        model: "mistral-large",
+        model: "mistral-medium",
         messages: [
           {
             role: "system",
