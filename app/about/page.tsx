@@ -4,11 +4,13 @@ import Layout from '../components/layout'
 import { Button } from "../components/ui/button"
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../context/auth-context'
+import { useTheme } from '../context/theme-context'
+
 
 export default function About() {
   const router = useRouter()
   const { user, signInWithGoogle } = useAuth()
-
+  const { isDarkMode } = useTheme()
   const handleStartAnalyze = async () => {
     if (user) {
       router.push('/analyze')
@@ -25,52 +27,70 @@ export default function About() {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+        <h1 className={`text-4xl font-bold mb-8 text-center ${
+          isDarkMode ? 'text-white' : 'text-gray-900'
+        }`}>
           Tentang YT Analyzer
         </h1>
 
         <div className="space-y-12">
-          {/* Bagian Penjelasan Utama */}
-          <section className="prose lg:prose-lg mx-auto">
-            <p className="text-xl text-gray-800 leading-relaxed font-medium">
+          <section className="prose lg:prose-lg mx-auto dark:prose-invert">
+            <p className={`text-xl leading-relaxed font-medium ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-800'
+            }`}>
               YT Analyzer adalah alat yang membantu Anda mengekstrak informasi penting dari video YouTube menggunakan kecerdasan buatan (AI). Dapatkan ringkasan dan poin kunci dari video tanpa perlu menonton keseluruhan konten.
             </p>
           </section>
 
-          {/* Fitur-fitur */}
           <section className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">🚀 Analisis Cepat</h3>
-              <p className="text-lg text-gray-700">
-                Dapatkan ringkasan video dalam hitungan detik, menghemat waktu Anda dalam memahami konten.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">🎯 Poin Penting</h3>
-              <p className="text-lg text-gray-700">
-                Ekstrak poin-poin kunci dan informasi penting dari video secara otomatis.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">📊 Riwayat Analisis</h3>
-              <p className="text-lg text-gray-700">
-                Simpan dan akses kembali hasil analisis video Anda kapan saja.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">🔒 Aman & Pribadi</h3>
-              <p className="text-lg text-gray-700">
-                Login dengan akun Google Anda untuk menyimpan analisis secara aman.
-              </p>
-            </div>
+            {[
+              {
+                icon: '🚀',
+                title: 'Analisis Cepat',
+                description: 'Dapatkan ringkasan video dalam hitungan detik, menghemat waktu Anda dalam memahami konten.'
+              },
+              {
+                icon: '🎯',
+                title: 'Poin Penting',
+                description: 'Ekstrak poin-poin kunci dan informasi penting dari video secara otomatis.'
+              },
+              {
+                icon: '📊',
+                title: 'Riwayat Analisis',
+                description: 'Simpan dan akses kembali hasil analisis video Anda kapan saja.'
+              },
+              {
+                icon: '🔒',
+                title: 'Aman & Pribadi',
+                description: 'Login dengan akun Google Anda untuk menyimpan analisis secara aman.'
+              }
+            ].map((feature, index) => (
+              <div key={index} className={`p-8 rounded-lg shadow-lg border transition-shadow hover:shadow-xl ${
+                isDarkMode 
+                  ? 'bg-gray-800 border-gray-700 text-white' 
+                  : 'bg-white border-gray-200 text-gray-900'
+              }`}>
+                <h3 className="text-2xl font-bold mb-4">
+                  {feature.icon} {feature.title}
+                </h3>
+                <p className={`text-lg ${
+                  isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
+                  {feature.description}
+                </p>
+              </div>
+            ))}
           </section>
 
-          {/* Call to Action */}
           <section className="text-center">
             <Button 
               size="lg"
               onClick={handleStartAnalyze}
-              className="bg-black hover:bg-gray-800 text-white text-lg px-8 py-6 rounded-xl font-semibold"
+              className={`text-lg px-8 py-6 rounded-xl font-semibold ${
+                isDarkMode 
+                  ? 'bg-white hover:bg-gray-100 text-gray-900' 
+                  : 'bg-black hover:bg-gray-800 text-white'
+              }`}
             >
               {user ? 'Mulai Analisis' : 'Login untuk Mulai'}
             </Button>

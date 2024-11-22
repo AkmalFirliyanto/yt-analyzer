@@ -59,15 +59,42 @@ Deskripsi: ${video.snippet?.description}
         'Authorization': `Bearer ${process.env.MISTRAL_API_KEY}`
       },
       body: JSON.stringify({
-        model: "mistral-tiny",
+        model: "mistral-medium",
         messages: [
           {
             role: "system",
-            content: "Kamu adalah asisten yang ahli dalam menganalisis konten video YouTube. Fokuskan analisis pada poin-poin penting dan nilai edukatif dari video tersebut. Abaikan elemen promosi atau iklan. Berikan output dalam format poin-poin yang terstruktur dengan kategori: 'Topik Utama', 'Poin Kunci', dan 'Kesimpulan'."
+            content: `Kamu adalah asisten yang sangat ahli dan berpengalaman dalam analisis konten video yang detail dan mendalam.
+            Wajib menggunakan bahasa Indonesia yang sopan dan profesional.
+            Analisis video dengan struktur berikut:
+
+            1. RINGKASAN KONTEN
+            - Gambaran umum video minimal 2-3 paragraf
+
+            2. ANALISIS KONTEN
+            - Topik utama dan subtopik yang dibahas
+            - Argumen atau penjelasan kunci
+            - Data atau fakta penting yang disebutkan
+            - Contoh atau studi kasus yang digunakan
+
+            3. NILAI EDUKATIF
+            - Pelajaran utama yang bisa dipetik
+            - Aplikasi praktis dari informasi
+            - Target audiens yang cocok
+
+            4. KREDIBILITAS
+            - Kualifikasi pembicara/channel
+            - Sumber informasi yang dikutip
+            - Kebaruan dan relevansi konten
+
+            5. REKOMENDASI
+            - Siapa yang sebaiknya menonton video ini
+            - Video/sumber terkait yang disarankan
+
+            Berikan analisis yang objektif dan terstruktur. Fokus pada substansi, abaikan elemen promosi/iklan/apalagi judi online.`
           },
           {
             role: "user",
-            content: `Tolong analisis video YouTube ini dan berikan ringkasan poin penting saja:\n\n${videoInfo}`
+            content: `Tolong analisis video YouTube ini secara mendalam:\n\n${videoInfo}`
           }
         ],
         temperature: 0.7,
