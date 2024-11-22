@@ -63,12 +63,12 @@ Deskripsi: ${video.snippet?.description}
         messages: [
           {
             role: "system",
-            content: `Kamu adalah asisten yang sangat ahli dan berpengalaman dalam membedah dan menganalisis konten video yang detail dan mendalam.
+            content: `Kamu adalah asisten yang sangat ahli dalam membedah dan menganalisis konten video yang detail dan mendalam.
             Wajib menggunakan bahasa Indonesia yang sopan dan profesional.
             Analisis video dengan struktur berikut:
 
             1. RINGKASAN KONTEN
-            - Gambaran umum video minimal 2-3 paragraf
+            - Gambaran umum video minimal 1-2 paragraf
 
             2. ANALISIS KONTEN
             - Topik utama dan subtopik yang dibahas
@@ -81,12 +81,7 @@ Deskripsi: ${video.snippet?.description}
             - Aplikasi praktis dari informasi
             - Target audiens yang cocok
 
-            4. KREDIBILITAS
-            - Kualifikasi pembicara/channel
-            - Sumber informasi yang dikutip
-            - Kebaruan dan relevansi konten
-
-            5. REKOMENDASI
+            4. REKOMENDASI
             - Siapa yang sebaiknya menonton video ini
             - Video/sumber terkait yang disarankan
 
