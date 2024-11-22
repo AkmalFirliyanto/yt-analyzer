@@ -59,11 +59,11 @@ Deskripsi: ${video.snippet?.description}
         'Authorization': `Bearer ${process.env.MISTRAL_API_KEY}`
       },
       body: JSON.stringify({
-        model: "mistral-medium",
+        model: "open-mistral-7b",
         messages: [
           {
             role: "system",
-            content: `Kamu adalah asisten yang sangat ahli dan berpengalaman dalam analisis konten video yang detail dan mendalam.
+            content: `Kamu adalah asisten yang sangat ahli dan berpengalaman dalam membedah dan menganalisis konten video yang detail dan mendalam.
             Wajib menggunakan bahasa Indonesia yang sopan dan profesional.
             Analisis video dengan struktur berikut:
 
