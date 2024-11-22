@@ -85,9 +85,6 @@ Deskripsi: ${video.snippet?.description}
             - Siapa yang sebaiknya menonton video ini
             - Video/sumber terkait yang disarankan
 
-            5. KESIMPULAN
-            - Ringkasan video dalam 1-2 paragraf
-
             Berikan analisis yang objektif dan terstruktur. Fokus pada substansi, abaikan elemen promosi/iklan/apalagi judi online.`
           },
           {
